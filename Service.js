@@ -1,4 +1,4 @@
-const { RegistrationModel } = require("./Schema");
+const { RegistrationModel, BookingModel } = require("./Schema");
 
 const handleLogin = (req, responseApi) => {
   const query = RegistrationModel.findOne({ username: req.body.username });
@@ -17,7 +17,16 @@ const handleRegistration = (req, responseApi) => {
     .catch((error) => console.log(error));
 };
 
+const handleCreateBooking = (req, responseApi) => {
+  BookingModel.create({
+    ...req.body,
+  })
+    .then((resDb) => responseApi.send(resDb))
+    .catch((error) => console.log(error));
+};
+
 module.exports = {
   handleLogin,
   handleRegistration,
+  handleCreateBooking,
 };

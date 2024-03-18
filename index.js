@@ -3,7 +3,11 @@ var cors = require("cors");
 const app = express();
 var bodyParser = require("body-parser");
 const { connectMongoDb } = require("./db");
-const { handleLogin, handleRegistration } = require("./Service");
+const {
+  handleLogin,
+  handleRegistration,
+  handleCreateBooking,
+} = require("./Service");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,6 +30,10 @@ app.post("/resgistration", async (req, responseApi) => {
 
 app.post("/login", (req, responseApi) => {
   handleLogin(req, responseApi);
+});
+
+app.post("/createBooking", (req, responseApi) => {
+  handleCreateBooking(req, responseApi);
 });
 
 app.listen(port, () => {
