@@ -12,13 +12,14 @@ const {
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
-  if (req.originalUrl === "/checkServer") {
-    res.end("Server Running : " + process.env.port);
-  } else {
-    connectMongoDb(req, res, next);
-  }
-});
+connectMongoDb();
+
+// app.use(function (req, res, next) {
+//   if (req.originalUrl === "/checkServer") {
+//     res.end("Server Running : " + process.env.port);
+//   } else {
+//   }
+// });
 
 const port = 4000;
 
