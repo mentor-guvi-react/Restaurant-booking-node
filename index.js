@@ -12,12 +12,18 @@ const {
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(connectMongoDb);
+app.use(function (req, res, next) {
+  if (req.originalUrl === "/checkServer") {
+    res.end("Server Running : " + process.env.port);
+  } else {
+    connectMongoDb(req, res, next);
+  }
+});
 
 const port = 4000;
 
 app.get("/", async (req, res) => {
-  res.send("server started");
+  res.send("server started" + process.env.myuri);
 });
 
 app.get("/connectDb", async (req, res) => {
