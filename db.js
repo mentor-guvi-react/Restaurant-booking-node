@@ -6,13 +6,13 @@ const mongoDb =
 
 const connectMongoDb = async (req, res, next) => {
   try {
+    console.log(
+      mongoose.connection.readyState,
+      " -> mongoose.connection.readyState"
+    );
     if (mongoose.connection.readyState === 1) return;
 
     await mongoose.connect(mongoDb);
-    console.log(
-      mongoose.connection.readyState,
-      "mongoose.connection.readyState"
-    );
     if (mongoose.connection.readyState == 2) {
       console.log("connecting...");
     } else if (mongoose.connection.readyState == 1) {
