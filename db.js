@@ -18,7 +18,7 @@ const connectMongoDb = async (req, res, next) => {
     } else if (mongoose.connection.readyState == 1) {
       console.log("connected ...");
     }
-    next && next();
+    // next && next();
   } catch (error) {
     res && res.send("connected Failed");
     console.log(error, "error connection");
