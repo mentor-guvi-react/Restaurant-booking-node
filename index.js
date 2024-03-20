@@ -7,6 +7,7 @@ const {
   handleLogin,
   handleRegistration,
   handleCreateBooking,
+  handleRestaurentSlots,
 } = require("./Service");
 
 app.use(cors());
@@ -41,6 +42,10 @@ app.post("/login", (req, responseApi) => {
 
 app.post("/createBooking", (req, responseApi) => {
   handleCreateBooking(req, responseApi);
+});
+
+app.post("/restaurent-slot", (req, responseApi) => {
+  handleRestaurentSlots(req, responseApi);
 });
 
 app.listen(port, () => {

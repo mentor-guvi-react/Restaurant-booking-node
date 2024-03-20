@@ -11,10 +11,11 @@ const RegistrationSchema = new Schema({
 
 const BookingSchema = new Schema({
   restaurantId: { type: String },
-  selectedSeat: { type: String },
-  phoselectedDatenenumber: { type: String },
+  selectedSeat: { type: Number },
+  selectedDate: { type: String },
   time: { type: String },
   userId: { type: String },
+  isCancelled: { type: Boolean },
 });
 
 const RegistrationModel = mongoose.model("Registration", RegistrationSchema);
