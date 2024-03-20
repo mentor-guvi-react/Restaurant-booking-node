@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-const mongoDb =
-  "mongodb+srv://mentorguvi:AsG5HtQYGlXeB4m4@cluster0.cysvbru.mongodb.net/";
-
 const connectMongoDb = async (req, res, next) => {
   try {
     console.log(
@@ -12,7 +9,7 @@ const connectMongoDb = async (req, res, next) => {
     );
     if (mongoose.connection.readyState === 1) return;
 
-    await mongoose.connect(mongoDb);
+    await mongoose.connect(process.env.myuri);
     if (mongoose.connection.readyState == 2) {
       console.log("connecting...");
     } else if (mongoose.connection.readyState == 1) {
