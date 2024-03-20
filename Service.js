@@ -1,4 +1,5 @@
 const { RegistrationModel, BookingModel } = require("./Schema");
+const { ObjectId } = require("mongodb");
 
 const handleLogin = (req, responseApi) => {
   const query = RegistrationModel.findOne({ username: req.body.username });
@@ -38,9 +39,37 @@ const handleRestaurentSlots = (req, responseApi) => {
     .catch((err) => console.log(err));
 };
 
+const getBookingsForUserId = (req, responseApi) => {
+  console.log(req.params.userId, "req.params.userId");
+  const query = BookingModel.find({
+    userId: req.params.userId,
+  });
+
+  query.select("restaurantId selectedSeat selectedDate time");
+
+  query
+    .exec()
+    .then((queryResponse) => responseApi.send(queryResponse))
+    .catch((err) => console.log(err));
+};
+
+const cancelBooking = async (req, responseApi) => {
+  const filter = { _id: new ObjectId(req.params.bookingId) };
+  const update = { isCancelled: true };
+  const doc = await BookingModel.findOneAndUpdate(filter, update);
+
+  if (doc.isCancelled) {
+    responseApi.send("Cancelled Successfully");
+  } else {
+    responseApi.send("cant cancel");
+  }
+};
+
 module.exports = {
   handleLogin,
   handleRegistration,
   handleCreateBooking,
   handleRestaurentSlots,
+  getBookingsForUserId,
+  cancelBooking,
 };
