@@ -11,6 +11,7 @@ UseFull Links
 1. Render.com used to deploy the Node web service https://dashboard.render.com/
 2. Create MongoDb cluster in https://cloud.mongodb.com/
 3. Prod Url for web service https://restaurant-booking-node.onrender.com
+4. postman workspace https://www.postman.com/orbital-module-geologist-87124491/workspace/restaurent-apis/collection/33673091-03a81431-f977-45f3-b7f3-661f0a8df034?action=share&creator=33673091
 
 Reference Links 
 1. Get started with mongoose https://mongoosejs.com/docs/index.html
