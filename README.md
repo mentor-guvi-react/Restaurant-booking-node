@@ -5,6 +5,7 @@ Get start
 2. cd into folder and do npm install
 3. run myuri=<mongodburl> npm start should start the node server
 4. example cmd  uri=mongodb+srv://mentorguvi:kjnasdawq213@cluster0.cysvbru.mongodb.net/ npm start
+5. Update your hard coded db string in db.js if needed to test locally
 
 UseFull Links
 1. Render.com used to deploy the Node web service https://dashboard.render.com/
@@ -15,4 +16,5 @@ Reference Links
 1. Get started with mongoose https://mongoosejs.com/docs/index.html
 2. Get started with express https://expressjs.com/
 3. Frontend production url https://restaurant-guvi-fe.netlify.app/
+4. Test your database locally using compass https://www.mongodb.com/products/tools/compass
    
